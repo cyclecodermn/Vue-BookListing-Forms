@@ -60,7 +60,7 @@ export default {
     BookItem,
     BookForm
   },
-  computed: {
+  computed:{
     filteredBooks() {
       return _.filter(this.books, ["ownership", this.holding])
     }
