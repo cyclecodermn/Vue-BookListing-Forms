@@ -5,11 +5,12 @@
       <book-item v-for="book in books" :key="book.id" :book="book"></book-item>
     </ul>
     <hr />
-    <h2>Filter Books by Ownership</h2>
+    <h2>Filtered Books by Ownership</h2>
+    {{holding}}
     <select v-model="holding">
       <option v-for="filter in filters">{{filter}}</option>
     </select>
-        <ul>
+    <ul>
       <book-item v-for="book in filteredBooks" :key="book.id" :book="book"></book-item>
     </ul>
     <br />
@@ -42,7 +43,7 @@ export default {
           title: "American Gods",
           author: "Neil Gaiman",
           finishedReading: false,
-          ownership: "bought"    
+          ownership: "bought"
         },
 
         {
@@ -52,7 +53,7 @@ export default {
           ownership: "borrowed"
         }
       ],
-      filters:["bought", "borrowed"],
+      filters: ["bought", "borrowed"],
       holding: "bought"
     };
   },
@@ -60,9 +61,17 @@ export default {
     BookItem,
     BookForm
   },
-  computed:{
+  computed: {
     filteredBooks() {
-      return _.filter(this.books, ["ownership", this.holding])
+      if (this.holding == "bought") {
+        console.clear;
+        console.log("is bought");
+      } else if (this.holding == "borrowed"); {
+        console.clear;
+        console.log("is borrowed");
+      }
+
+      return _.filter(this.books, ["ownership", this.holding]);
     }
   },
   methods: {
