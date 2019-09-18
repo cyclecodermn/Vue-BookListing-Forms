@@ -9,7 +9,7 @@
     <select v-model="holding">
       <option v-for="filter in filters">{{filter}}</option>
     </select>
-        <ul>
+    <ul>
       <book-item v-for="book in filteredBooks" :key="book.id" :book="book"></book-item>
     </ul>
     <br />
@@ -20,9 +20,6 @@
 
 <script>
 import _ from "lodash";
-// The video said I should add the library Lodash, but I have no idea what it does.
-// Below, it is used for filtering, in computed property 'filtered books'.
-import BookItem from "./BookItem";
 import BookForm from "./BookForm";
 
 export default {
@@ -42,7 +39,7 @@ export default {
           title: "American Gods",
           author: "Neil Gaiman",
           finishedReading: false,
-          ownership: "bought"    
+          ownership: "bought"
         },
 
         {
@@ -52,7 +49,7 @@ export default {
           ownership: "borrowed"
         }
       ],
-      filters:["bought", "borrowed"],
+      filters: ["bought", "borrowed"],
       holding: "bought"
     };
   },
@@ -60,9 +57,9 @@ export default {
     BookItem,
     BookForm
   },
-  computed:{
+  computed: {
     filteredBooks() {
-      return _.filter(this.books, ["ownership", this.holding])
+      return _.filter(this.books, ["ownership", this.holding]);
     }
   },
   methods: {
