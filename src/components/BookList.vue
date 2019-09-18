@@ -21,8 +21,6 @@
 
 <script>
 import _ from "lodash";
-// The video said I should add the library Lodash, but I have no idea what it does.
-// Below, it is used for filtering, in computed property 'filtered books'.
 import BookItem from "./BookItem";
 import BookForm from "./BookForm";
 
@@ -66,7 +64,8 @@ export default {
       if (this.holding == "bought") {
         console.clear;
         console.log("is bought");
-      } else if (this.holding == "borrowed"); {
+      } else if (this.holding == "borrowed");
+      {
         console.clear;
         console.log("is borrowed");
       }
